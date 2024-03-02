@@ -5,8 +5,8 @@ import {
 } from '@expo-google-fonts/nunito-sans';
 import { Routes } from '@src/routes';
 import { theme } from '@src/theme';
+import { StatusBar } from 'expo-status-bar';
 import { ThemeProvider } from 'styled-components/native';
-
 
 export default function App() {
   let [fontsLoaded, fontError] = useFonts({
@@ -20,6 +20,7 @@ export default function App() {
 
   return (
     <ThemeProvider theme={theme}>
+      <StatusBar style="dark" />
       <Routes />
     </ThemeProvider>
   );
