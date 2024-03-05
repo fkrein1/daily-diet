@@ -3,6 +3,7 @@ import { AddMeal } from '@src/screens/AddMeal/add-meal.components';
 import { Home } from '@src/screens/Home/home.component';
 import { useTheme } from 'styled-components/native';
 import { AppRoutesParamList } from './app.types';
+import { MealSuccess } from '@src/screens/MealSuccess/meal-success.component';
 
 const { Navigator, Screen } = createNativeStackNavigator<AppRoutesParamList>();
 
@@ -16,6 +17,7 @@ export function AppRoutes() {
     >
       <Screen name="Home" component={Home} />
       <Screen name="AddMeal" component={AddMeal} />
+      <Screen name="MealSuccess" component={MealSuccess} />
     </Navigator>
   );
 }
