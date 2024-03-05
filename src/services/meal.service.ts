@@ -21,13 +21,50 @@ export const mealService = {
     }
   },
 
-  async getMeals(): Promise<T.IGetMealsResponse[]> {
+  async getMeals(): Promise<T.IMeal[]> {
     try {
       const storedMeals = await AsyncStorage.getItem(this.mealStorageKey);
       return storedMeals ? JSON.parse(storedMeals) : [];
     } catch (error) {
       console.error('Error getting meal:', error);
       return [];
+    }
+  },
+
+  async deleteMeal(id: string) {
+    try {
+      const storedMeals = await AsyncStorage.getItem(this.mealStorageKey);
+      const meals: T.IMeal[] = storedMeals ? JSON.parse(storedMeals) : [];
+
+      const updatedMeals = meals.filter((meal) => meal.id !== id);
+
+      await AsyncStorage.setItem(
+        this.mealStorageKey,
+        JSON.stringify(updatedMeals),
+      );
+    } catch (error) {
+      console.error('Error deleting meal:', error);
+    }
+  },
+
+  async editMeal(meal: T.IEditMealRequest) {
+    try {
+      const storedMeals = await AsyncStorage.getItem(this.mealStorageKey);
+      const meals: T.IMeal[] = storedMeals ? JSON.parse(storedMeals) : [];
+
+      const updatedMeals = meals.map((item) => {
+        if (item.id === meal.id) {
+          return meal;
+        }
+        return item;
+      });
+
+      await AsyncStorage.setItem(
+        this.mealStorageKey,
+        JSON.stringify(updatedMeals),
+      );
+    } catch (error) {
+      console.error('Error deleting meal:', error);
     }
   },
 };

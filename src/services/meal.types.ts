@@ -6,7 +6,16 @@ export interface IAddMealRequest {
   onDiet: boolean;
 }
 
-export interface IGetMealsResponse {
+export interface IEditMealRequest {
+  name: string;
+  description: string;
+  date: Date;
+  time: Date;
+  onDiet: boolean;
+  id: string;
+}
+
+export interface IMeal {
   name: string;
   description: string;
   date: string;

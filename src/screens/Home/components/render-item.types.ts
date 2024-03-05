@@ -1,6 +1,6 @@
-import { IGetMealsResponse } from "@src/services/meal.types";
+import { IMeal } from '@src/services/meal.types';
 
 export interface RendeItemProps {
-  item: IGetMealsResponse;
-  handleItemPress: (item: IGetMealsResponse) => void;
+  item: IMeal;
+  handleItemPress: (item: IMeal) => void;
 }

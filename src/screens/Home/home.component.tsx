@@ -4,7 +4,7 @@ import Logo from '@src/assets/logo.svg';
 import { useFocusEffect } from '@react-navigation/native';
 import { helpers } from '@src/helpers';
 import { mealService } from '@src/services/meal.service';
-import { IGetMealsResponse } from '@src/services/meal.types';
+import { IMeal } from '@src/services/meal.types';
 import { compareDesc, parse } from 'date-fns';
 import { useCallback, useState } from 'react';
 import { SectionList } from 'react-native';
@@ -13,9 +13,9 @@ import * as S from './home.styles';
 import * as T from './home.types';
 
 export function Home({ navigation }: T.HomeProps) {
-  const [meals, setMeals] = useState<IGetMealsResponse[]>([]);
+  const [meals, setMeals] = useState<IMeal[]>([]);
 
-  const handleItemPress = (item: IGetMealsResponse) => {
+  const handleItemPress = (item: IMeal) => {
     navigation.navigate('Meal', { item });
   };
 
@@ -26,7 +26,7 @@ export function Home({ navigation }: T.HomeProps) {
         acc[day] = acc[day] || [];
         acc[day].push(meal);
         return acc;
-      }, {} as { [key: string]: IGetMealsResponse[] });
+      }, {} as { [key: string]: IMeal[] });
 
     const sortDays = (days: string[]) =>
       days.sort((a, b) => {
