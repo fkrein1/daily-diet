@@ -3,6 +3,7 @@ import styled, { css } from 'styled-components/native';
 
 export const Container = styled.SafeAreaView`
   background-color: ${({ theme }) => theme.COLORS.GRAY_700};
+  flex: 1;
 `;
 
 export const Wrapper = styled.View`
@@ -54,4 +55,18 @@ export const MealsText = styled.Text(
 
 export const PlusIcon = styled(AntDesign)`
   color: ${({ theme }) => theme.COLORS.WHITE};
+`;
+
+export const SectionHeader = styled.Text(
+  ({ theme }) => css`
+    color: ${theme.COLORS.GRAY_100};
+    font-family: ${theme.FONT_FAMILY.BOLD};
+    font-size: 18px;
+    margin-bottom: 8px;
+    margin-top: 32px;
+  `,
+);
+
+export const ListSeparator = styled.View`
+  height: 32px;
 `;
