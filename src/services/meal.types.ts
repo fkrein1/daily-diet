@@ -5,3 +5,12 @@ export interface IAddMealRequest {
   time: Date;
   onDiet: boolean;
 }
+
+export interface IGetMealsResponse {
+  name: string;
+  description: string;
+  date: string;
+  time: string;
+  onDiet: boolean;
+  id: string;
+}
