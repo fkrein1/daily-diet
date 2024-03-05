@@ -15,6 +15,11 @@ import * as T from './home.types';
 export function Home({ navigation }: T.HomeProps) {
   const [meals, setMeals] = useState<IMeal[]>([]);
 
+  const hasMeals = meals.length > 0;
+  const onDietPercentage =
+    meals.filter((meal) => meal.onDiet).length / meals.length;
+  const isOnDiet = onDietPercentage >= 0.5;
+
   const handleItemPress = (item: IMeal) => {
     navigation.navigate('Meal', { item });
   };
@@ -66,6 +71,16 @@ export function Home({ navigation }: T.HomeProps) {
           <Logo />
           <S.Avatar source={avatar} />
         </S.Header>
+
+        {hasMeals && (
+          <S.Stats onDiet={isOnDiet} activeOpacity={0.8}>
+            <S.ArrowRight name={'arrow-up-right'} size={28} onDiet={isOnDiet} />
+            <S.StatsTitle>
+              {helpers.formatPercentage(onDietPercentage)}
+            </S.StatsTitle>
+            <S.StatsText>das refeições dentro da dieta</S.StatsText>
+          </S.Stats>
+        )}
 
         <S.Meals>
           <S.MealsTitle>Refeições</S.MealsTitle>

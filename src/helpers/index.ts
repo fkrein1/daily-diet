@@ -14,4 +14,10 @@ const formatDayOfYear = (value: string) => {
   });
 };
 
-export const helpers = { formatDateToTime, formatDayOfYear };
+export function formatPercentage(decimalNumber: number) {
+  const percentageString =
+    (decimalNumber * 100).toFixed(2).replace('.', ',') + '%';
+  return percentageString;
+}
+
+export const helpers = { formatDateToTime, formatDayOfYear, formatPercentage };

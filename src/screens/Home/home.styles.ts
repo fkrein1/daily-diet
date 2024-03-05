@@ -1,3 +1,5 @@
+
+import { Feather } from '@expo/vector-icons';
 import { AntDesign } from '@expo/vector-icons';
 import styled, { css } from 'styled-components/native';
 
@@ -9,6 +11,44 @@ export const Container = styled.SafeAreaView`
 export const Wrapper = styled.View`
   padding: 0px 24px;
 `;
+
+interface StatsProps {
+  onDiet: boolean;
+}
+
+export const Stats = styled.TouchableOpacity<StatsProps>`
+  background-color: ${({ onDiet, theme }) =>
+    onDiet ? theme.COLORS.GREEN_LIGHT : theme.COLORS.RED_LIGHT};
+  position: relative;
+  border-radius: 8px;
+  padding: 20px;
+  margin-bottom: 40px;
+`;
+
+export const ArrowRight = styled(Feather)<StatsProps>`
+  color: ${({ onDiet, theme }) =>
+    onDiet ? theme.COLORS.GREEN_DARK : theme.COLORS.RED_DARK};
+  position: absolute;
+  top: 8px;
+  right: 8px
+`;
+
+export const StatsTitle = styled.Text(
+  ({ theme }) => css`
+    color: ${theme.COLORS.GRAY_100};
+    font-family: ${theme.FONT_FAMILY.BOLD};
+    font-size: 32px;
+    text-align: center;
+  `,
+);
+
+export const StatsText = styled.Text(
+  ({ theme }) => css`
+    color: ${theme.COLORS.GRAY_200};
+    font-size: 14px;
+    text-align: center;
+  `,
+);
 
 export const Header = styled.View`
   flex-direction: row;
