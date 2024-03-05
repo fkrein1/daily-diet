@@ -6,6 +6,7 @@ import { MealSuccess } from '@src/screens/MealSuccess/meal-success.component';
 import { useTheme } from 'styled-components/native';
 import { AppRoutesParamList } from './app.types';
 import { EditMeal } from '@src/screens/EditMeal/edit-meal.components';
+import { Stats } from '@src/screens/Stats/stats.components';
 
 const { Navigator, Screen } = createNativeStackNavigator<AppRoutesParamList>();
 
@@ -22,6 +23,7 @@ export function AppRoutes() {
       <Screen name="MealSuccess" component={MealSuccess} />
       <Screen name="Meal" component={Meal} />
       <Screen name="EditMeal" component={EditMeal} />
+      <Screen name="Stats" component={Stats} />
 
     </Navigator>
   );

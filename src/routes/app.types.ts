@@ -6,4 +6,5 @@ export type AppRoutesParamList = {
   MealSuccess: { onDiet: boolean };
   Meal: { item: IMeal };
   EditMeal: { item: IMeal };
+  Stats: { meals: IMeal[] };
 };

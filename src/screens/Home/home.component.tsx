@@ -24,6 +24,10 @@ export function Home({ navigation }: T.HomeProps) {
     navigation.navigate('Meal', { item });
   };
 
+  const handleStatsPress = () => {
+    navigation.navigate('Stats', { meals });
+  };
+
   const organizeMealsByDate = () => {
     const groupMealsByDay = () =>
       meals.reduce((acc, meal) => {
@@ -73,7 +77,7 @@ export function Home({ navigation }: T.HomeProps) {
         </S.Header>
 
         {hasMeals && (
-          <S.Stats onDiet={isOnDiet} activeOpacity={0.8}>
+          <S.Stats onDiet={isOnDiet} activeOpacity={0.8} onPress={handleStatsPress}>
             <S.ArrowRight name={'arrow-up-right'} size={28} onDiet={isOnDiet} />
             <S.StatsTitle>
               {helpers.formatPercentage(onDietPercentage)}
